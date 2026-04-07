@@ -64,6 +64,7 @@ XGBoost
 Matplotlib, Seaborn
 
 **Estructura del proyecto**
+
 ├── data/
 │   └── Adidas_US_Sales_Datasets.xlsx
 ├── notebooks/
@@ -71,6 +72,3 @@ Matplotlib, Seaborn
 ├── README.md
 └── requirements.txt
 
-Si quieres, puedo hacer una versión aún más “GitHub-friendly” con badges, instalación rápida y un apartado de Uso / Cómo ejecutar el notebook, lista para subir directamente a tu portfolio.
-
-¿Quieres que haga eso también?
