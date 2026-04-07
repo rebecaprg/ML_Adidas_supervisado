@@ -57,18 +57,23 @@ Este proyecto combina rigor técnico y utilidad de negocio. Se demuestra que:
 
 **Tecnologías utilizadas**
 
-Python 3
-Pandas, NumPy
-Scikit-learn
-XGBoost
-Matplotlib, Seaborn
+| Librería | Versión | Uso |
+|---|---|---|
+| `pandas` | 2.0+ | Manipulación y análisis de datos |
+| `numpy` | 1.24+ | Operaciones numéricas |
+| `matplotlib` | 3.7+ | Visualización |
+| `seaborn` | 0.12+ | Visualización estadística |
+| `scikit-learn` | 1.3+ | Preprocesado, modelos y métricas |
+| `xgboost` | 2.0+ | Modelo principal |
+| `joblib` | 1.3+ | Persistencia del modelo |
 
 **Estructura del proyecto**
 
+```
 ├── data/
 │   └── Adidas_US_Sales_Datasets.xlsx
 ├── notebooks/
 │   └── adidas_sales_analysis.ipynb
 ├── README.md
 └── requirements.txt
-
+```
