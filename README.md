@@ -71,9 +71,9 @@ Este proyecto combina rigor técnico y utilidad de negocio. Se demuestra que:
 
 ```
 ├── data/
-│   └── Adidas_US_Sales_Datasets.xlsx
-├── notebooks/
-│   └── adidas_sales_analysis.ipynb
-├── README.md
-└── requirements.txt
+│   └── Adidas_US_Sales_Datasets.xlsx  
+├── ML_Adidas.ipynb                    
+├── README.md                          
+├── .gitignore
+└── .gitattributes
 ```
