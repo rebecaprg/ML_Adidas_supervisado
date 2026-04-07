@@ -77,3 +77,8 @@ Este proyecto combina rigor técnico y utilidad de negocio. Se demuestra que:
 ├── .gitignore
 └── .gitattributes
 ```
+
+
+
+
+
