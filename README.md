@@ -72,10 +72,18 @@ Este proyecto combina rigor técnico y utilidad de negocio. Se demuestra que:
 ```
 ├── data/
 │   └── Adidas_US_Sales_Datasets.xlsx  
-├── ML_Adidas.ipynb                    
-├── README.md                          
+├── models/
+│   └── adidas_pipeline.pkl                     
+├── notebooks/
+│   └── ML_Adidas  
+├── src/
+│   └── __init__.py 
+│   └── pipeline.py 
+├── .gitattributes
 ├── .gitignore
-└── .gitattributes
+├── main.py
+├── README.md                          
+└── requirements.txt 
 ```
 
 
