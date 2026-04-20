@@ -96,7 +96,7 @@ git clone https://github.com/tu-usuario/tu-repo.git
 
 Acceder al proyecto:
 ```
-cd tu-repo
+cd ML_Adidas
 ```
 
 Instalar las dependencias:
