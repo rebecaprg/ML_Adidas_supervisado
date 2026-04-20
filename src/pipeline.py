@@ -6,18 +6,15 @@ from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestRegressor
 
 
-# -----------------------------
-# 1. CARGA DE DATOS
-# -----------------------------
+# 1. Cargar datos
 def load_data(path):
     df = pd.read_excel(path, sheet_name="Data Sales Adidas", header=4)
     df.columns = df.columns.str.strip()
     return df
 
 
-# -----------------------------
-# 2. FEATURE ENGINEERING
-# -----------------------------
+# 2. Feature engineering
+
 class FeatureEngineer(BaseEstimator, TransformerMixin):
 
     def fit(self, X, y=None):
@@ -27,9 +24,9 @@ class FeatureEngineer(BaseEstimator, TransformerMixin):
 
         df = X.copy()
 
-        # -----------------
-        # FEATURES TIEMPO
-        # -----------------
+  
+        # Features tiempo 
+   
         df["Invoice Date"] = pd.to_datetime(df["Invoice Date"])
 
         df["year"] = df["Invoice Date"].dt.year
@@ -42,15 +39,14 @@ class FeatureEngineer(BaseEstimator, TransformerMixin):
 
         df = df.drop("Invoice Date", axis=1)
 
-        # -----------------
-        # FEATURES NUMÉRICAS
-        # -----------------
+        
+        # Features numéricas 
+      
         df["Price_x_Units"] = df["Price per Unit"] * df["Units Sold"]
         df["log_units"] = np.log1p(df["Units Sold"])
 
-        # -----------------
-        # CATEGÓRICAS (ONE HOT)
-        # -----------------
+   
+        # Features categóricas
         categorical_cols = [
             "Retailer",
             "Region",
@@ -65,9 +61,8 @@ class FeatureEngineer(BaseEstimator, TransformerMixin):
         return df
 
 
-# -----------------------------
-# 3. PIPELINE FINAL
-# -----------------------------
+
+# 3. Pipeline
 def build_pipeline():
 
     model = RandomForestRegressor(
