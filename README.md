@@ -85,7 +85,23 @@ Este proyecto combina rigor técnico y utilidad de negocio. Se demuestra que:
 ├── README.md                          
 └── requirements.txt 
 ```
+**Instalación**
 
+Clonar el repositorio:
+
+```
+git clone https://github.com/tu-usuario/tu-repo.git
+```
+
+Acceder al proyecto:
+```
+cd tu-repo
+```
+
+Instalar las dependencias:
+```
+pip install -r requirements.txt
+```
 
 
 
