@@ -2,13 +2,18 @@ from fastapi import FastAPI
 import joblib
 import pandas as pd
 import numpy as np
+import os
+
 
 app = FastAPI(title="Adidas Sales Prediction API")
 
 
 # Cargar modelo
 
-model = joblib.load("models/adidas_pipeline.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "adidas_pipeline.pkl")
+
+model = joblib.load(MODEL_PATH)
 
 
 # Root
