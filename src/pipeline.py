@@ -14,39 +14,27 @@ def load_data(path):
 
 
 # 2. Feature engineering
-
 class FeatureEngineer(BaseEstimator, TransformerMixin):
 
     def fit(self, X, y=None):
-        return self
-
-    def transform(self, X):
 
         df = X.copy()
 
-  
-        # Features tiempo 
-   
+        # tiempo
         df["Invoice Date"] = pd.to_datetime(df["Invoice Date"])
-
         df["year"] = df["Invoice Date"].dt.year
         df["month"] = df["Invoice Date"].dt.month
         df["dayofweek"] = df["Invoice Date"].dt.dayofweek
-
         df["quarter"] = (df["month"] - 1) // 3 + 1
         df["is_weekend"] = df["dayofweek"].isin([5, 6]).astype(int)
         df["holiday_season"] = df["month"].isin([11, 12]).astype(int)
-
         df = df.drop("Invoice Date", axis=1)
 
-        
-        # Features numéricas 
-      
+        # numéricas
         df["Price_x_Units"] = df["Price per Unit"] * df["Units Sold"]
         df["log_units"] = np.log1p(df["Units Sold"])
 
-   
-        # Features categóricas
+        # categóricas
         categorical_cols = [
             "Retailer",
             "Region",
@@ -58,8 +46,46 @@ class FeatureEngineer(BaseEstimator, TransformerMixin):
 
         df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
 
-        return df
+        # Guardar columnas entrenamiento 
+        self.columns_ = df.columns
 
+        return self
+
+
+    def transform(self, X):
+
+        df = X.copy()
+
+        # tiempo
+        df["Invoice Date"] = pd.to_datetime(df["Invoice Date"])
+        df["year"] = df["Invoice Date"].dt.year
+        df["month"] = df["Invoice Date"].dt.month
+        df["dayofweek"] = df["Invoice Date"].dt.dayofweek
+        df["quarter"] = (df["month"] - 1) // 3 + 1
+        df["is_weekend"] = df["dayofweek"].isin([5, 6]).astype(int)
+        df["holiday_season"] = df["month"].isin([11, 12]).astype(int)
+        df = df.drop("Invoice Date", axis=1)
+
+        # numéricas
+        df["Price_x_Units"] = df["Price per Unit"] * df["Units Sold"]
+        df["log_units"] = np.log1p(df["Units Sold"])
+
+        # categóricas
+        categorical_cols = [
+            "Retailer",
+            "Region",
+            "State",
+            "City",
+            "Product",
+            "Sales Method"
+        ]
+
+        df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
+
+        # Igualar columnas entrenamiento 
+        df = df.reindex(columns=self.columns_, fill_value=0)
+
+        return df
 
 
 # 3. Pipeline
