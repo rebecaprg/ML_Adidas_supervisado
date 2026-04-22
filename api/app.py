@@ -31,12 +31,41 @@ def predict(data: dict):
     # convertir input a dataframe
     df = pd.DataFrame([data])
 
-    # predicción log
-    pred_log = model.predict(df)
+    # predicción 
+    pred = model.predict(df)
+    prediction = float(pred[0])
 
-    # volver a escala real
-    pred = np.expm1(pred_log)
+    # Interpretación para negocio
+    if prediction < 20:
+        level = "bajo"
+        insight = "Rentabilidad baja"
+        recommendations = [
+            "Revisar precio del producto",
+            "Reducir costes o mejorar margen",
+            "Analizar canal de venta"
+        ]
+
+    elif prediction < 50:
+        level = "medio"
+        insight = "Rentabilidad media"
+        recommendations = [
+            "Optimizar campañas de marketing",
+            "Mejorar mix de productos",
+            "Aumentar eficiencia en ventas"
+        ]
+
+    else:
+        level = "alto"
+        insight = "Alta rentabilidad"
+        recommendations = [
+            "Escalar este tipo de ventas",
+            "Invertir más en este segmento",
+            "Replicar estrategia en otras regiones"
+        ]
 
     return {
-        "prediction_operating_profit": float(pred[0])
+        "prediction_operating_profit": prediction,
+        "level": level,
+        "insight": insight,
+        "recommendations": recommendations
     }
