@@ -103,7 +103,20 @@ Instalar las dependencias:
 ```
 pip install -r requirements.txt
 ```
+**API de predicción desplegada (Render)**
 
+El modelo está desplegado como una API pública usando FastAPI + Gunicorn + Render.
+
+🔗 URL base:
+```
+
+https://ml-adidas-supervisado.onrender.com
+```
+
+🔗 Documentación interactiva (Swagger):
+```
+https://ml-adidas-supervisado.onrender.com/docs
+```
 
 
 
