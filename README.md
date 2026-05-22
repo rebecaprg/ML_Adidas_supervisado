@@ -177,9 +177,10 @@ El dataset utilizado en este proyecto fue obtenido de:
 - Adidas US Sales Dataset — Kaggle  
   https://www.kaggle.com/datasets/abdulrahmanmmusmar/adidas-us-sales-datasets?select=Adidas+US+Sales+Datasets.xlsx
 
+Licencia: Desconocida (según aparece en Kaggle).  
 Este dataset se utiliza únicamente con fines educativos y de portfolio.
 
-This dataset is used for educational and portfolio purposes only.
+
 ## Autora
 | Rebeca Prior | [@rebecaprg](https://github.com/rebecaprg) |
 
